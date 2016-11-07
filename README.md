@@ -6,10 +6,15 @@ This runs an nmap scan on a list of targets and saves the results.
 
 Subsequent scans will be compared with the last scan and if desired can be posted to slack
 
+### *NOTE:*  You must ensure that you run this script and/or container responsibly. Dont be a jerk by using this to abuse stuff. You agree that you are responsible for running this script, not anyone else.
+
+
+
 ## Data
 
 The script is set to save its data to `/data`.
-If you're running the script outside of the docker container you'll either need to change this in the script or create that directory
+
+If you're running the script outside of the docker container you'll either need to change this in the script or create that directory on the machine you're running this from.
 
 
 ## Targets
@@ -31,11 +36,13 @@ If you're using the docker image append the following option to your docker comm
 ## Posting to Slack
 
 You'll need:
-* to setup your own bot on slack so you can get an API token pass it to the variable: `SLACK_TOKEN`
-* A channel to post in. Pass it to the variable `SLACK_CHAN`
-* To enable the slack posting option. pass it the variable `SLACK_ENABLE`
+* to setup your own bot on slack so you can get an API token pass it to the variable - `SLACK_TOKEN="xxx"`
+* The channel to post in. Pass this like so: `SLACK_CHAN="channelname"`
+* To enable the slack posting option. Pass the following as a variable: `SLACK_ENABLE="y"`
 
-you can run it direct with the following 
+You can get your slack bot variable from here: https://my.slack.com/services/new/bot
+
+You can run it direct with the following 
 
 ```
 SLACK_ENABLE="Y" SLACK_CHAN="channel" SLACK_TOKEN="xxxx" go.sh
